@@ -1,0 +1,32 @@
+{
+  "slug": "URack-Realsense",
+  "name": "URack Realsense",
+  "version": "1.0.0",
+  "license": "GPLv3.0",
+  "brand": "Eidetic",
+  "author": "Matt Hughes",
+  "authorEmail": "matth@eidetic.net.au",
+  "authorUrl": "",
+  "pluginUrl": "",
+  "manualUrl": "",
+  "sourceUrl": "https://github.com/eidetic-av/URack-Realsense",
+  "donateUrl": "",
+  "changelogUrl": "",
+  "modules": [
+    {
+      "slug": "Rs2",
+      "name": "Rs2",
+      "description": "Intel RealSense Sensor Input",
+      "tags": [
+        "URack",
+        "Visuals",
+        "Visualisation",
+        "Point-cloud",
+        "point cloud",
+        "sensor",
+        "camera",
+        "depth"
+      ]
+    }
+  ]
+}
