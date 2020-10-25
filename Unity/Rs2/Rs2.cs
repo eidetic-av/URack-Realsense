@@ -1,33 +1,38 @@
+using System;
+using System.Text;
+using System.Threading;
+using System.Runtime.InteropServices;
 using UnityEngine;
 
 namespace Eidetic.URack.Realsense
 {
-    public class Rs2 : UModule
+    public unsafe class Rs2 : UModule
     {
-        static Rsvfx.CombinedDriver deviceDriver;
-        Rsvfx.CombinedDriver DeviceDriver => deviceDriver ??
-            (GetAsset<GameObject>("Rs2DeviceManager.prefab").Instantiate()
-             .GetComponent<Rsvfx.CombinedDriver>());
-
         public PointCloud pointCloudOutput;
-        public PointCloud PointCloudOutput
-        {
-            get
-            {
-                if (pointCloudOutput != null) return pointCloudOutput;
-                return (pointCloudOutput = ScriptableObject.CreateInstance<PointCloud>());
-            }
-        }
+        public PointCloud PointCloudOutput => pointCloudOutput ??
+            (pointCloudOutput = ScriptableObject.CreateInstance<PointCloud>());
+
+        public RenderTexture PackedInputStream;
+
+        Texture2D Positions;
+        Texture2D Colors;
 
         public void Start()
         {
-            DeviceDriver.PointClouds.Add(PointCloudOutput);
+            Positions = new Texture2D(PackedInputStream.width, PackedInputStream.height / 2, TextureFormat.RGBAFloat, false);
+            Colors = new Texture2D(PackedInputStream.width, PackedInputStream.height / 2, TextureFormat.RGBAFloat, false);
         }
 
-        void OnDestroy()
+        public void Update()
         {
-            DeviceDriver?.PointClouds.Remove(PointCloudOutput);
-            Destroy(PointCloudOutput);
+            // This is slow and dumb
+            RenderTexture.active = PackedInputStream;
+            Positions.ReadPixels(new Rect(0, 0, PackedInputStream.width, PackedInputStream.height / 2), 0, 0, false);
+            Positions.Apply();
+            Colors.ReadPixels(new Rect(0, PackedInputStream.height / 2, PackedInputStream.width, PackedInputStream.height), 0, 0, false);
+            Colors.Apply();
+            PointCloudOutput.SetPositionMap(Positions, false);
+            PointCloudOutput.SetColorMap(Colors, false);
         }
 
     }

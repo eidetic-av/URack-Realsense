@@ -123,12 +123,12 @@ build/src/Rs2.cpp.o: src/Rs2.cpp src/plugin.hpp \
  /eidetic/URack-VCV/include/../lib/oscpack/osc/OscReceivedElements.h \
  /eidetic/URack-VCV/include/../lib/oscpack/osc/../ip/PacketListener.h \
  /eidetic/URack-VCV/include/constants.hpp \
- /eidetic/URack-VCV/include/urack-settings.hpp \
  /eidetic/URack-VCV/include/network-types.hpp \
+ /eidetic/URack-VCV/include/urack-settings.hpp \
  /eidetic/URack-VCV/include/urack-module.hpp \
+ /eidetic/Rack-SDK/include/plugin.hpp \
  /eidetic/URack-VCV/include/point-cloud.hpp \
- /eidetic/Rack-SDK/include/settings.hpp \
- /eidetic/Rack-SDK/include/plugin.hpp
+ /eidetic/Rack-SDK/include/settings.hpp
 src/plugin.hpp:
 /eidetic/URack-VCV/include/urack.hpp:
 /eidetic/Rack-SDK/include/rack.hpp:
@@ -259,9 +259,9 @@ src/plugin.hpp:
 /eidetic/URack-VCV/include/../lib/oscpack/osc/OscReceivedElements.h:
 /eidetic/URack-VCV/include/../lib/oscpack/osc/../ip/PacketListener.h:
 /eidetic/URack-VCV/include/constants.hpp:
-/eidetic/URack-VCV/include/urack-settings.hpp:
 /eidetic/URack-VCV/include/network-types.hpp:
+/eidetic/URack-VCV/include/urack-settings.hpp:
 /eidetic/URack-VCV/include/urack-module.hpp:
+/eidetic/Rack-SDK/include/plugin.hpp:
 /eidetic/URack-VCV/include/point-cloud.hpp:
 /eidetic/Rack-SDK/include/settings.hpp:
-/eidetic/Rack-SDK/include/plugin.hpp:
